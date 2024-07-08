@@ -3,10 +3,11 @@ import React from 'react'
 import {Tabs} from 'expo-router'
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { Colors } from './../../constants/Colors';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{headerShown:false}}>
+    <Tabs screenOptions={{headerShown:false, tabBarActiveTintColor:Colors.PRIMARY}}>
         <Tabs.Screen name = 'home'
         options={{tabBarLabel:'Home', tabBarIcon:({color})=> <FontAwesome name="home" size={24} color={color} />}}/>
 
