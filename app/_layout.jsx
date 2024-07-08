@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/clerk-expo";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 
@@ -8,8 +9,10 @@ export default function RootLayout() {
     'outfit-bold':require('./../assets/fonts/Outfit-Bold.ttf')
   })
   return (
+    <ClerkProvider publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}>
     <Stack>
       <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
     </Stack>
+    </ClerkProvider>
   );
 }
