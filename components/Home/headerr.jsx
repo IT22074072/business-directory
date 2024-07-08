@@ -1,8 +1,8 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TextInput } from "react-native";
 import React from "react";
 import { useUser } from "@clerk/clerk-expo";
 import { Colors } from "../../constants/Colors";
-import { SearchBar } from "react-native-screens";
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Headerr() {
   const { user } = useUser();
@@ -45,6 +45,12 @@ export default function Headerr() {
         </View>
       </View>
 
+
+      {/*SearchBar*/}
+      <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center', backgroundColor:'#fff', padding: 8,marginVertical:10, marginTop:17, borderRadius:8}}>
+      <Ionicons name="search-sharp" size={24} color={Colors.PRIMARY} />
+      <TextInput placeholder="Search..." style={{fontFamily:'outfit', fontSize:16}}/>
+      </View>
     </View>
   );
 }
