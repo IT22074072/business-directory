@@ -12,6 +12,8 @@ export default function Headerr() {
         padding: 20,
         paddingTop: 40,
         backgroundColor: Colors.PRIMARY,
+        borderBottomLeftRadius:20,
+        borderBottomRightRadius:20
       }}
     >
       <View
