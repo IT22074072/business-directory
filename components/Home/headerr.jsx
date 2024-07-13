@@ -46,7 +46,7 @@ export default function Headerr() {
           </Text>
         </View>
       </View>
-
+    
 
       {/*SearchBar*/}
       <View style={{display:'flex', flexDirection:'row', gap:20, alignItems:'center', backgroundColor:'#fff', padding: 8,marginVertical:10, marginTop:17, borderRadius:8}}>
