@@ -1,7 +1,8 @@
 import { View, Text } from "react-native";
 import React from "react";
 import Headerr from "../../components/Home/headerr";
-import Slider from "../../components/Slider";
+import Slider from "../../components/Home/Slider";
+import Category from "../../components/Home/Category";
 
 
 export default function home() {
@@ -14,6 +15,7 @@ export default function home() {
       <Slider/>
 
       {/*Categoery*/}
+      <Category/>
 
       {/*Popular Business List*/}
     </View>

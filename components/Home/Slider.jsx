@@ -1,6 +1,6 @@
 import { View, Text, FlatList, Image } from "react-native";
 import React, { useEffect, useState } from "react";
-import { db } from "./../configs/FirebaseConfig";
+import { db } from "../../configs/FirebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
 
 export default function Slider() {
@@ -26,17 +26,18 @@ export default function Slider() {
         style={{
           fontFamily: "outfit-bold",
           fontSize: 20,
-
           paddingLeft:20,
-          paddingTop:20
+          paddingTop:20,
+          marginBottom:5
         }}
       >
-        #️Special for you
+        #Special for you
       </Text>
 
       <FlatList
         data={sliderList}
         horizontal={true}
+        showsHorizontalScrollIndicator={false}
         style={{paddingLeft:20}}
         renderItem={({ item, index }) => (
           <Image
