@@ -26,21 +26,27 @@ export default function Slider() {
         style={{
           fontFamily: "outfit-bold",
           fontSize: 20,
-          padding: 20,
+
+          paddingLeft:20,
+          paddingTop:20
         }}
       >
-        Special for you
+        #️Special for you
       </Text>
 
       <FlatList
         data={sliderList}
+        horizontal={true}
+        style={{paddingLeft:20}}
         renderItem={({ item, index }) => (
           <Image
             source={{ uri: item.imageUrl }}
             style={{
-              width: 300,
-              height: 160,
+              width: 310,
+              height: 150,
               marginBottom: 10,
+              borderRadius:15,
+              marginRight:15
             }}
           />
         )}
