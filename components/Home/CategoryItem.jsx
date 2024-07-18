@@ -7,10 +7,10 @@ export default function CategoryItem({ category, onCategoryPress }) {
     <TouchableOpacity onPress={() => onCategoryPress(category)}>
       <View
         style={{
-          padding: 15,
+          padding: 10,
           backgroundColor: Colors.icon_BG,
           borderRadius: 99,
-          marginRight: 15,
+          marginRight: 15
         }}
       >
         <Image

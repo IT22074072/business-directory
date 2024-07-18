@@ -27,7 +27,7 @@ export default function Slider() {
           fontFamily: "outfit-bold",
           fontSize: 20,
           paddingLeft:20,
-          paddingTop:20,
+          paddingTop:10,
           marginBottom:5
         }}
       >
@@ -44,7 +44,7 @@ export default function Slider() {
             source={{ uri: item.imageUrl }}
             style={{
               width: 310,
-              height: 150,
+              height: 130,
               marginBottom: 10,
               borderRadius:15,
               marginRight:15
