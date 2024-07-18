@@ -9,7 +9,7 @@ import { Colors } from "../../constants/Colors";
 export default function BusinessListByCategory() {
   const navigation = useNavigation();
   const { category } = useLocalSearchParams();
-  
+
   const [BusinessList, setBusinessList] = useState([]);
   useEffect(() => {
     navigation.setOptions({
@@ -33,7 +33,7 @@ export default function BusinessListByCategory() {
 
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
-      setBusinessList((prev) => [...prev, doc.data()]);
+      setBusinessList((prev) => [...prev, { id: doc?.id, ...doc.data() }]); //fetching id for each of the business
     });
   };
   return (
