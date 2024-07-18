@@ -47,6 +47,8 @@ export default function BusinessListByCategory() {
       {BusinessList.length > 0 &&loading==false? (
         <FlatList
           data={BusinessList}
+          onRefresh={getBusinessList}
+          refreshing={loading}
           renderItem={({ item, index }) => (
             <BusinessListCard business={item} key={index} />
           )}
