@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator, BackHandler } from "react-native";
+import { View, Text, ActivityIndicator, BackHandler, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { db } from "./../../configs/FirebaseConfig";
@@ -36,7 +36,7 @@ export default function businessDetail() {
     }
   };
   return (
-    <View>
+    <ScrollView>
       {loading ? (
         <ActivityIndicator style={{marginTop:'60%'}} size={"large"} color={Colors.PRIMARY}/>
       ) : (
@@ -49,7 +49,8 @@ export default function businessDetail() {
           <About business={business}/>
 
         </View>
+        
       )}
-    </View>
+    </ScrollView>
   );
 }
