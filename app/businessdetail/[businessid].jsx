@@ -1,12 +1,19 @@
-import { View, Text, ActivityIndicator, BackHandler, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  BackHandler,
+  ScrollView,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { db } from "./../../configs/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import { Colors } from './../../constants/Colors'
-import Intro from './../../components/BusinessDetail/Intro'
+import { Colors } from "./../../constants/Colors";
+import Intro from "./../../components/BusinessDetail/Intro";
 import ActionButton from "../../components/BusinessDetail/ActionButton";
 import About from "../../components/BusinessDetail/About";
+import Reviews from "../../components/BusinessDetail/Reviews";
 
 export default function businessDetail() {
   const navigation = useNavigation();
@@ -28,7 +35,7 @@ export default function businessDetail() {
     const docRef = doc(db, "BusinessList", businessid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setBusiness(docSnap.data());
+      setBusiness({ id: docSnap.id, ...docSnap.data() }); //getting business id and other data
       setLoading(false);
     } else {
       //docSnap.data() will be undefined
@@ -38,18 +45,22 @@ export default function businessDetail() {
   return (
     <ScrollView>
       {loading ? (
-        <ActivityIndicator style={{marginTop:'60%'}} size={"large"} color={Colors.PRIMARY}/>
+        <ActivityIndicator
+          style={{ marginTop: "60%" }}
+          size={"large"}
+          color={Colors.PRIMARY}
+        />
       ) : (
         <View>
           {/*Intro*/}
-          <Intro business={business}/>
+          <Intro business={business} />
           {/*Action Buttons*/}
-          <ActionButton business={business}/>
+          <ActionButton business={business} />
           {/*About Section*/}
-          <About business={business}/>
-
+          <About business={business} />
+          {/*Review Section*/}
+          <Reviews business={business} />
         </View>
-        
       )}
     </ScrollView>
   );
