@@ -6,6 +6,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { Colors } from './../../constants/Colors'
 import Intro from './../../components/BusinessDetail/Intro'
 import ActionButton from "../../components/BusinessDetail/ActionButton";
+import About from "../../components/BusinessDetail/About";
 
 export default function businessDetail() {
   const navigation = useNavigation();
@@ -45,6 +46,7 @@ export default function businessDetail() {
           {/*Action Buttons*/}
           <ActionButton business={business}/>
           {/*About Section*/}
+          <About business={business}/>
 
         </View>
       )}
