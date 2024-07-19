@@ -43,6 +43,7 @@ export default function businessDetail() {
           {/*Intro*/}
           <Intro business={business}/>
           {/*Action Buttons*/}
+          <ActionButton business={business}/>
           {/*About Section*/}
 
         </View>
