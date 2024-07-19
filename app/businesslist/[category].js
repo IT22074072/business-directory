@@ -19,7 +19,7 @@ export default function BusinessListByCategory() {
       headerTitle: category,
     });
     getBusinessList();
-  }, []);
+  }, [category]);
 
   /**
    * Used to get business list by category
