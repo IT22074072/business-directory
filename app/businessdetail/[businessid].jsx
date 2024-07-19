@@ -1,16 +1,22 @@
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, BackHandler } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useNavigation } from "expo-router";
 import { db } from "./../../configs/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import { Colors } from './../../constants/Colors'
+import Intro from './../../components/BusinessDetail/Intro'
+import ActionButton from "../../components/BusinessDetail/ActionButton";
 
 export default function businessDetail() {
+  const navigation = useNavigation();
   const { businessid } = useLocalSearchParams();
-  const [businessDetail, setBusinessDetail] = useState();
+  const [business, setBusiness] = useState([]); //don't forget to add this(empty array)
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
     GetBusinessDetailById();
   }, []);
   /**
@@ -21,7 +27,7 @@ export default function businessDetail() {
     const docRef = doc(db, "BusinessList", businessid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setBusinessDetail(docSnap.data());
+      setBusiness(docSnap.data());
       setLoading(false);
     } else {
       //docSnap.data() will be undefined
@@ -34,7 +40,11 @@ export default function businessDetail() {
         <ActivityIndicator style={{marginTop:'60%'}} size={"large"} color={Colors.PRIMARY}/>
       ) : (
         <View>
-          
+          {/*Intro*/}
+          <Intro business={business}/>
+          {/*Action Buttons*/}
+          {/*About Section*/}
+
         </View>
       )}
     </View>
