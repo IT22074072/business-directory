@@ -19,7 +19,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.dinithijk.businessderectory"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +41,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "79a60ee3-5b8a-4a91-8bca-9cc3701f188a"
+      }
     }
   }
 }
